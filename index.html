@@ -51,16 +51,39 @@
       padding-bottom: 5px;
       margin-bottom: 20px;
     }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    ul li {
-      background: #e1f0fb;
-      margin-bottom: 10px;
-      padding: 12px 15px;
+
+    /* Accordion styles */
+    .accordion-item {
+      border: 1px solid #ccc;
       border-radius: 5px;
+      margin-bottom: 10px;
+      background: #fff;
+      overflow: hidden;
     }
+
+    .accordion-header {
+      background-color: #e1f0fb;
+      padding: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+      color: #005a87;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 15px;
+      font-style: italic;
+      background: #f9fcfe;
+    }
+
+    .accordion-item.active .accordion-content {
+      max-height: 200px;
+      padding: 15px;
+    }
+
     .contact-form {
       background: white;
       padding: 20px;
@@ -95,12 +118,6 @@
     .contact-form button:hover {
       background-color: #004466;
     }
-    .thank-you-message {
-      display: none;
-      color: green;
-      font-weight: 600;
-      margin-top: 20px;
-    }
     footer {
       text-align: center;
       padding: 15px 0;
@@ -132,11 +149,27 @@
   <div class="container">
     <section id="services">
       <h2>Our Services</h2>
-      <ul>
-        <li>Hardware Repair & Upgrades</li>
-        <li>Operating System Installation & Troubleshooting</li>
-        <li>Custom PC Builds</li>
-      </ul>
+
+      <div class="accordion-item">
+        <div class="accordion-header">Hardware Repair & Upgrades</div>
+        <div class="accordion-content">
+          <p>We diagnose and repair faulty hardware components and offer upgrade services to boost your system’s performance.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">Operating System Installation & Troubleshooting</div>
+        <div class="accordion-content">
+          <p>We install, configure, and troubleshoot Windows, Linux, or MacOS operating systems — including driver updates and virus removal.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">Custom PC Builds</div>
+        <div class="accordion-content">
+          <p>We help you design and build a custom PC tailored to your needs, whether for gaming, work, or content creation.</p>
+        </div>
+      </div>
     </section>
 
     <section id="about">
@@ -150,47 +183,19 @@
 
     <section id="contact">
       <h2>Contact Us</h2>
-
-      <!-- Formspree form with your email -->
-      <form
-        class="contact-form"
-        id="contactForm"
-        action="https://formspree.io/f/mwpbeqpl"
-        method="POST"
-      >
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/mwpbeqpl" method="POST">
         <label for="name">Full Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Your full name"
-          required
-        />
+        <input type="text" id="name" name="name" placeholder="Your full name" required />
 
         <label for="email">Email Address</label>
-        <input
-          type="email"
-          id="email"
-          name="_replyto"
-          placeholder="Your email"
-          required
-        />
+        <input type="email" id="email" name="email" placeholder="Your email" required />
 
         <label for="message">Message</label>
-        <textarea
-          id="message"
-          name="message"
-          rows="5"
-          placeholder="Describe your issue or inquiry"
-          required
-        ></textarea>
+        <textarea id="message" name="message" rows="5" placeholder="Describe your issue or inquiry" required></textarea>
 
         <button type="submit">Send Message</button>
       </form>
-
-      <p class="thank-you-message" id="thankYouMessage">
-        Thanks for reaching out! We'll get back to you soon.
-      </p>
+      <p id="thankYouMessage" style="color:green; display:none;">Thanks for reaching out! We'll get back to you soon.</p>
     </section>
   </div>
 
@@ -199,11 +204,22 @@
   </footer>
 
   <script>
-    // Show thank-you message after redirect from Formspree ?success=true
+    // Formspree success redirect handling
     if (window.location.search.includes("success=true")) {
       document.getElementById("contactForm").style.display = "none";
       document.getElementById("thankYouMessage").style.display = "block";
     }
+
+    // Accordion toggle
+    const items = document.querySelectorAll('.accordion-item');
+    items.forEach(item => {
+      const header = item.querySelector('.accordion-header');
+      header.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        items.forEach(i => i.classList.remove('active'));
+        if (!isActive) item.classList.add('active');
+      });
+    });
   </script>
 </body>
 </html>
