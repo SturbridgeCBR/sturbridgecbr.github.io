@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sturbridge Computer Builds and Repairs</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #005a87;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: #cce6ff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    section {
+      margin-bottom: 50px;
+    }
+    h2 {
+      color: #005a87;
+      border-bottom: 3px solid #005a87;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li {
+      background: #e1f0fb;
+      margin-bottom: 10px;
+      padding: 12px 15px;
+      border-radius: 5px;
+    }
+    .contact-form {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .contact-form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    .contact-form button {
+      background-color: #005a87;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .contact-form button:hover {
+      background-color: #004466;
+    }
+    .thank-you-message {
+      display: none;
+      color: green;
+      font-weight: 600;
+      margin-top: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      background: #003a57;
+      color: white;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      nav a {
+        margin: 0 8px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>QuickFix Computer Repair</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="services">
+      <h2>Our Services</h2>
+      <ul>
+        <li>Hardware Repair & Upgrades</li>
+        <li>Operating System Installation & Troubleshooting</li>
+        <li>Custom PC Builds</li>
+      </ul>
+    </section>
+
+    <section id="about">
+      <h2>About Us</h2>
+      <p>
+        We at Sturbridge Computer Builds and Repairs have our CompTIA PC Pro certifications and our OSHA 10 certifications.
+        We are also currently working on our CompTIA Networking+ certifications.
+        The idea behind this company was to gain experience and earn some extra money.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+
+      <!-- Formspree form with your email -->
+      <form
+        class="contact-form"
+        id="contactForm"
+        action="https://formspree.io/f/mwpbeqpl"
+        method="POST"
+      >
+        <label for="name">Full Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your full name"
+          required
+        />
+
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="_replyto"
+          placeholder="Your email"
+          required
+        />
+
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          placeholder="Describe your issue or inquiry"
+          required
+        ></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+
+      <p class="thank-you-message" id="thankYouMessage">
+        Thanks for reaching out! We'll get back to you soon.
+      </p>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Sturbridge Computer Builds and Repairs. All rights reserved.
+  </footer>
+
+  <script>
+    // Show thank-you message after redirect from Formspree ?success=true
+    if (window.location.search.includes("success=true")) {
+      document.getElementById("contactForm").style.display = "none";
+      document.getElementById("thankYouMessage").style.display = "block";
+    }
+  </script>
+</body>
+</html>
