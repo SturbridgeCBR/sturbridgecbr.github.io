@@ -15,36 +15,60 @@
       color: #333;
       line-height: 1.6;
     }
+
     header {
       background-color: #005a87;
       color: white;
-      padding: 20px 0;
+      padding: 10px 20px;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      height: 50px;
+      margin-right: 20px;
+    }
+
+    .site-title {
       text-align: center;
     }
-    header h1 {
+
+    .site-title h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
     }
+
     nav {
       margin-top: 10px;
+      text-align: center;
     }
+
     nav a {
       color: #cce6ff;
       margin: 0 15px;
       text-decoration: none;
       font-weight: 600;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
+
     .container {
       max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
     }
+
     section {
       margin-bottom: 50px;
     }
+
     h2 {
       color: #005a87;
       border-bottom: 3px solid #005a87;
@@ -90,11 +114,13 @@
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+
     .contact-form label {
       display: block;
       margin-bottom: 6px;
       font-weight: 600;
     }
+
     .contact-form input,
     .contact-form textarea {
       width: 100%;
@@ -105,6 +131,7 @@
       font-size: 1rem;
       font-family: inherit;
     }
+
     .contact-form button {
       background-color: #005a87;
       color: white;
@@ -115,9 +142,11 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
+
     .contact-form button:hover {
       background-color: #004466;
     }
+
     footer {
       text-align: center;
       padding: 15px 0;
@@ -125,10 +154,21 @@
       color: white;
       font-size: 0.9rem;
     }
+
     @media (max-width: 600px) {
-      header h1 {
+      .header-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logo {
+        margin-bottom: 10px;
+      }
+
+      .site-title h1 {
         font-size: 1.8rem;
       }
+
       nav a {
         margin: 0 8px;
         font-size: 0.9rem;
@@ -138,32 +178,35 @@
 </head>
 <body>
   <header>
-    <h1>QuickFix Computer Repair</h1>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="header-container">
+      <img src="Buisness LOGO.png" alt="Company Logo" class="logo" />
+      <div class="site-title">
+        <h1>Sturbridge Computer Builds and Repairs</h1>
+        <nav>
+          <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
   </header>
 
   <div class="container">
     <section id="services">
       <h2>Our Services</h2>
-
       <div class="accordion-item">
         <div class="accordion-header">Hardware Repair & Upgrades</div>
         <div class="accordion-content">
           <p>We diagnose and repair faulty hardware components and offer upgrade services to boost your system’s performance.</p>
         </div>
       </div>
-
       <div class="accordion-item">
         <div class="accordion-header">Operating System Installation & Troubleshooting</div>
         <div class="accordion-content">
           <p>We install, configure, and troubleshoot Windows, Linux, or MacOS operating systems — including driver updates and virus removal.</p>
         </div>
       </div>
-
       <div class="accordion-item">
         <div class="accordion-header">Custom PC Builds</div>
         <div class="accordion-content">
@@ -172,12 +215,23 @@
       </div>
     </section>
 
+    <section id="pricing">
+      <h2>Pricing</h2>
+      <ul>
+        <li>Our price is $20 to examine the computer and figure out what the problem is. If the problem is as simple as a loose cable, your money will be refunded. If the problem requires further fixing, we will charge an extra $10 and the price of any parts we will require to fix the issue.
+</li>
+      </ul>
+      <p><strong>Note:</strong> All pricing is subject to change based on the specific job. Contact us for a full quote.</p>
+    </section>
+
     <section id="about">
       <h2>About Us</h2>
       <p>
-        We at Sturbridge Computer Builds and Repairs have our CompTIA PC Pro certifications and our OSHA 10 certifications.
-        We are also currently working on our CompTIA Networking+ certifications.
-        The idea behind this company was to gain experience and earn some extra money.
+        We at Sturbridge Computer Builds and Repairs are current IT students at 
+        Tantasqua Regional High School. We have our CompTIA PC Pro certifications 
+        and our OSHA 10 certifications. We are also currently working on our CompTIA 
+        Networking+ certifications. The idea behind this company was to gain experience 
+        and earn some extra money.
       </p>
     </section>
 
